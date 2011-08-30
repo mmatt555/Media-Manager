@@ -1,0 +1,46 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="MediaManager.AddMovieScreen"
+	x:Name="UserControl"
+	d:DesignWidth="640" d:DesignHeight="480" Width="902" Height="512" Foreground="{x:Null}">
+	
+	<UserControl.Resources>
+			
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="ScreenResources/Storyboards.xaml"/>
+			</ResourceDictionary.MergedDictionaries>
+
+		</ResourceDictionary>
+
+	
+	</UserControl.Resources>
+
+	
+	
+	<Grid x:Name="LayoutRoot">
+		<Label x:Name="MainTitle" Content="Add Movie" Height="88" Margin="281,23,281,0" VerticalAlignment="Top" Foreground="White" FontSize="64" FontFamily="Sony Sketch EF"/>
+		<Image x:Name="FilmImage" Margin="27.5,120,0,78" Height="314" HorizontalAlignment="Left" Width="217" RenderTransformOrigin="0.482,0.503"  />
+		<Button Content="Open Saved Picture" HorizontalAlignment="Left" Height="27" Margin="57,0,0,18" VerticalAlignment="Bottom" Width="162" Click="Button_Click" />
+		<TextBox x:Name="TxBoxName" Height="21" Margin="0,167,49,0" TextWrapping="Wrap" Text="&#xd;&#xa;" VerticalAlignment="Top" HorizontalAlignment="Right" Width="339" Background="#FF9DB6BC" BorderBrush="{x:Null}"/>
+		<Label Content="Name:" HorizontalAlignment="Left" Height="34" Margin="281,154,0,0" VerticalAlignment="Top" Width="85.5" Foreground="White" FontSize="26.667" FontFamily="Sony Sketch EF"/>
+		<Label Content="Release Year:" HorizontalAlignment="Left" Height="34" Margin="281,192,0,0" VerticalAlignment="Top" Width="160.5" Foreground="White" FontSize="26.667" FontFamily="Sony Sketch EF"/>
+		<Label x:Name="Story_" Content="Story:" HorizontalAlignment="Left" Margin="281,0,0,133" Width="160.5" Foreground="White" FontSize="26.667" FontFamily="Sony Sketch EF" Height="38" VerticalAlignment="Bottom"/>
+		<Label Content="Genres:" HorizontalAlignment="Left" Margin="281,240,0,238" Width="95.5" Foreground="White" FontSize="26.667" FontFamily="Sony Sketch EF"/>
+		<TextBox x:Name="TxBoxRelease" Height="21" Margin="0,205,49,0" TextWrapping="Wrap" Text="&#xa;" VerticalAlignment="Top" HorizontalAlignment="Right" Width="339"/>
+		<TextBox x:Name="TxBoxGenres" Margin="0,253,49,238" TextWrapping="Wrap" Text="&#xa;" HorizontalAlignment="Right" Width="339"/>
+		<TextBox x:Name="TxBoxRating" Margin="0,0,49,190" TextWrapping="Wrap" Text="&#xa;" HorizontalAlignment="Right" Width="339" Height="21" VerticalAlignment="Bottom"/>
+		<TextBox x:Name="TxBoxStory" Height="112" Margin="0,0,49,50" TextWrapping="Wrap" Text="&#xa;" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="339"/>
+		<Label Content="Rating (0.0 - 10.0):" Height="44" Margin="281,0,401.5,175" VerticalAlignment="Bottom" Foreground="White" FontSize="26.667" FontFamily="Sony Sketch EF" RenderTransformOrigin="0.421,4.765"/>
+		<Button x:Name="BtLoadFile" Content="LoadFile" HorizontalAlignment="Left" Height="27" Margin="258,0,0,18" VerticalAlignment="Bottom" Width="165" Click="BtLoadFile_Click"/>
+		<Label Content="File Directory:" Height="43" Margin="281,120,443.5,0" VerticalAlignment="Top" Foreground="White" FontSize="26.667" FontFamily="Sony Sketch EF" RenderTransformOrigin="-0.877,0.235"/>
+		<TextBox x:Name="TxBoxDirectory" Height="21" Margin="0,133,49,0" TextWrapping="Wrap" Text="No File Selected&#xa;" VerticalAlignment="Top" HorizontalAlignment="Right" Width="339" IsEnabled="False" />
+		<Button x:Name="BtIMDB" Content="Grab Info From IMDB" HorizontalAlignment="Right" Height="27" Margin="0,0,281,18" VerticalAlignment="Bottom" Width="162.5" Click="BtIMDB_Click"/>
+		<Button x:Name="BtAddFilm" Content="Add Film" HorizontalAlignment="Right" Height="27" Margin="0,0,49,18" VerticalAlignment="Bottom" Width="162.5"/>
+		<Button x:Name="ReturnButton" Content="Button" Height="61" Style="{DynamicResource ReturnStyle1}" Margin="0,23,49,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="73"/>
+    </Grid>
+</UserControl>

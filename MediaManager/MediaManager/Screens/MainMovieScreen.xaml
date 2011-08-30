@@ -1,0 +1,145 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="MediaManager.MainMovieScreen"
+	x:Name="UserControl"
+	d:DesignWidth="640" d:DesignHeight="480" Width="902" Height="512">
+	<UserControl.Resources>
+		<Style x:Key="ViewMBt" TargetType="{x:Type Button}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Grid>
+							<Image x:Name="VeiwMBt" Source="Screen2Images\Layer 8.png"/>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsFocused" Value="True"/>
+							<Trigger Property="IsDefaulted" Value="True"/>
+							<Trigger Property="IsMouseOver" Value="True"/>
+							<Trigger Property="IsPressed" Value="True"/>
+							<Trigger Property="IsEnabled" Value="False"/>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="AddNBt" TargetType="{x:Type Button}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Grid>
+							<Image x:Name="AddNBt" Source="Screen2Images\Layer 8 copy.png"/>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsFocused" Value="True"/>
+							<Trigger Property="IsDefaulted" Value="True"/>
+							<Trigger Property="IsMouseOver" Value="True"/>
+							<Trigger Property="IsPressed" Value="True"/>
+							<Trigger Property="IsEnabled" Value="False"/>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="AddNBtFocused" TargetType="{x:Type Button}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Grid>
+							<Image x:Name="AddNBt" Source="Screen2Images\Layer 8 copy.png"/>
+							<Rectangle Fill="{x:Null}" Stroke="Red" RadiusX="6" StrokeThickness="3" RadiusY="2"/>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsFocused" Value="True"/>
+							<Trigger Property="IsDefaulted" Value="True"/>
+							<Trigger Property="IsMouseOver" Value="True"/>
+							<Trigger Property="IsPressed" Value="True"/>
+							<Trigger Property="IsEnabled" Value="False"/>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="ViewMBtFocused" TargetType="{x:Type Button}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Grid>
+							<Image x:Name="VeiwMBt" Source="Screen2Images\Layer 8.png"/>
+							<Rectangle Fill="{x:Null}" Stroke="Red" RadiusX="6" StrokeThickness="3" RadiusY="2"/>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsFocused" Value="True"/>
+							<Trigger Property="IsDefaulted" Value="True"/>
+							<Trigger Property="IsMouseOver" Value="True"/>
+							<Trigger Property="IsPressed" Value="True"/>
+							<Trigger Property="IsEnabled" Value="False"/>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="ReturnStyle1" TargetType="{x:Type Button}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Grid>
+							<Image Source="/MediaManager;component/Screen1Images/Generic/ReturnImage.png" Stretch="Fill"/>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsFocused" Value="True"/>
+							<Trigger Property="IsDefaulted" Value="True"/>
+							<Trigger Property="IsMouseOver" Value="True"/>
+							<Trigger Property="IsPressed" Value="True"/>
+							<Trigger Property="IsEnabled" Value="False"/>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="ReturnButtonFocused" TargetType="{x:Type Button}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Grid>
+							<Rectangle Fill="#71175E7C" Stroke="{x:Null}" RadiusY="0" Margin="-13,-12,-9,-9"/>
+							<Image Source="/MediaManager;component/Screen1Images/Generic/ReturnImage.png" Stretch="Fill"/>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsFocused" Value="True"/>
+							<Trigger Property="IsDefaulted" Value="True"/>
+							<Trigger Property="IsMouseOver" Value="True"/>
+							<Trigger Property="IsPressed" Value="True"/>
+							<Trigger Property="IsEnabled" Value="False"/>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</UserControl.Resources>
+
+	<Grid x:Name="LayoutRoot">
+		<Canvas x:Name="Mmanager2" ClipToBounds="True" HorizontalAlignment="Left" Height="512" UseLayoutRounding="False" VerticalAlignment="Top" Width="902">
+			<Button x:Name="ViewMBt" Content="Button" Height="98" Canvas.Left="99" Style="{DynamicResource ViewMBt}" Canvas.Top="210" Width="291"/>
+			<Button x:Name="AddNBt" Content="Button" Height="98" Canvas.Left="513" Style="{DynamicResource AddNBt}" Canvas.Top="210" Width="291"/>
+			<Image x:Name="LftShad" Height="98" Canvas.Left="16" Source="Screen2Images\Layer 8 copy 2.png" Canvas.Top="311" Width="374"/>
+			<Image x:Name="RtShad" Height="98" Canvas.Left="513" Source="Screen2Images\Layer 8 copy 3.png" Canvas.Top="311" Width="365"/>
+			<Image x:Name="MainText" Height="65" Canvas.Left="99" Source="/MediaManager;component/Screen1Images/MainText.png" Stretch="Fill" Canvas.Top="52" Width="425">
+				<Image.Effect>
+					<DropShadowEffect BlurRadius="5" Color="#FF000000" Direction="-60" Opacity="0.75" ShadowDepth="5"/>
+				</Image.Effect>
+			</Image>
+			<Image x:Name="Underline" Height="3" Canvas.Left="99" Source="/MediaManager;component/Screen1Images/Underline.png" Stretch="Fill" Canvas.Top="104" Width="412">
+				<Image.Effect>
+					<DropShadowEffect BlurRadius="5" Color="#FF000000" Direction="-60" Opacity="0.75" ShadowDepth="5"/>
+				</Image.Effect>
+			</Image>
+			<Image x:Name="LftOutline" Height="88" Canvas.Left="37" Source="/MediaManager;component/Screen1Images/MovBTShadOutline.png" Stretch="Fill" Canvas.Top="311" Width="353" Visibility="Hidden"/>
+			<Image x:Name="RtOutline" Height="85" Canvas.Left="513" Source="/MediaManager;component/Screen1Images/TVBTShadOutline.png" Stretch="Fill" Canvas.Top="311" Width="364" Visibility="Hidden"/>
+			<Button x:Name="ReturnButton" Content="Button" Height="61" Canvas.Left="413" Style="{DynamicResource ReturnStyle1}" Canvas.Top="421" Width="73"/>
+		</Canvas>
+	</Grid>
+</UserControl>
