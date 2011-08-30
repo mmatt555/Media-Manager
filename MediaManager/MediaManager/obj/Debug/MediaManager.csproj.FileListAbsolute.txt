@@ -31,3 +31,6 @@ C:\Users\Administrator\Documents\Expression\Blend 4\Projects\MediaManager\MediaM
 C:\Users\Administrator\Documents\Expression\Blend 4\Projects\MediaManager\MediaManager\obj\Debug\MediaManager.application
 C:\Users\Administrator\Documents\Expression\Blend 4\Projects\MediaManager\MediaManager\obj\Debug\FilmViewer.baml
 C:\Users\Administrator\Documents\Expression\Blend 4\Projects\MediaManager\MediaManager\obj\Debug\FilmViewer.g.cs
+C:\Users\Administrator\Media-Manager\MediaManager\MediaManager\bin\Debug\MediaManager.exe.config
+C:\Users\Administrator\Media-Manager\MediaManager\MediaManager\obj\Debug\MediaManager.exe
+C:\Users\Administrator\Media-Manager\MediaManager\MediaManager\obj\Debug\MediaManager.pdb
