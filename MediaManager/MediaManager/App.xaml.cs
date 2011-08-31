@@ -30,13 +30,7 @@ namespace MediaManager
             {
                 MessageBox.Show(ex.Message); 
             }
-            
         }
-
-
-
-
-
 	}
 
 

@@ -1,4 +1,4 @@
-﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:AniScrollViewerExample="clr-namespace:AniScrollViewerExample"
 	xmlns:System="clr-namespace:System;assembly=mscorlib"
 	x:Class="MediaManager.ViewFilmsScreen"
 	x:Name="UserControl"
@@ -52,9 +52,9 @@
 				<Setter.Value>
 					<ControlTemplate TargetType="{x:Type ListBox}">
 						<Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="1" SnapsToDevicePixels="true" CornerRadius="20">
-							<ListBox x:Name="ScrollViewer" Margin="14,0" BorderBrush="{x:Null}" Visibility="Visible" Background="{x:Null}">
+							<AniScrollViewerExample:AniScrollViewer x:Name="ScrollViewer" Margin="14,0" BorderBrush="{x:Null}" Visibility="Visible" Background="{x:Null}">
 								<ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-							</ListBox>
+							</AniScrollViewerExample:AniScrollViewer>
 						</Border>
 						<ControlTemplate.Triggers>
 							<Trigger Property="IsEnabled" Value="false">
@@ -164,5 +164,7 @@
 		<Label Content="This Value:" HorizontalAlignment="Right" Height="25" Margin="0,131,165,0" VerticalAlignment="Top" Width="194" Foreground="White"/>
 		<Button x:Name="cmdAddCondition" Content="Add Condition!" HorizontalAlignment="Right" Height="29" Margin="0,112,20,0" VerticalAlignment="Top" Width="154"/>
 		<Button x:Name="cmdReset" Content="Reset!" HorizontalAlignment="Right" Height="30" Margin="0,78,20,0" VerticalAlignment="Top" Width="154" Click="cmdReset_Click"/>
+		<Button x:Name="cmdRight" Content="Button" HorizontalAlignment="Right" Height="34" Margin="0,0,8,136" VerticalAlignment="Bottom" Width="41"/>
+		<Button x:Name="cmdLeft" Content="Button" HorizontalAlignment="Left" Height="34" Margin="8,0,0,136" VerticalAlignment="Bottom" Width="37"/>
 	</Grid>
 </UserControl>

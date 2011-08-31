@@ -92,6 +92,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AniScrollViewer.cs" />
     <Compile Include="DatabaseManager.cs" />
     <Compile Include="FilmSelector.xaml.cs">
       <DependentUpon>FilmSelector.xaml</DependentUpon>

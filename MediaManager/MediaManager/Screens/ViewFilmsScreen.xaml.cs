@@ -19,7 +19,7 @@ namespace MediaManager
 	/// </summary>
 	public partial class ViewFilmsScreen : UserControl
 	{
-
+        public static AniScrollViewerExample.AniScrollViewer Scroller;
 
 		public ViewFilmsScreen()
 		{
@@ -28,15 +28,41 @@ namespace MediaManager
             //lbFilms.SetValue(ScrollViewer.HorizontalScrollBarVisibilityProperty, ScrollBarVisibility.Hidden);
 			lbFilms.MouseDoubleClick +=new System.Windows.Input.MouseButtonEventHandler(lbFilms_MouseDoubleClick);
             cmdAddCondition.Click += new RoutedEventHandler(cmdAddCondition_Click);
+            Scroller = (AniScrollViewerExample.AniScrollViewer)FindResource("ScrollViewer");
+            cmdLeft.Click += new RoutedEventHandler(cmdLeft_Click);
+            cmdRight.Click += new RoutedEventHandler(cmdRight_Click);
 			
 		}
+
+        void cmdRight_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (Scroller == null) MessageBox.Show("testin'");
+                
+                double xoffset = Scroller.HorizontalOffset;
+                xoffset += 20;
+                double yoffset = Scroller.VerticalOffset;
+                Scroller.ScrollTo(xoffset, yoffset,Scroller);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.InnerException.Message);
+            }
+        }
+
+        void cmdLeft_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
 
         void cmdAddCondition_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder command = new StringBuilder();
             if (txboxCommand.Text.ToLower().Contains("where"))
             {
-                command.Append(" AND ");
+                command.Append("AND ");
             }
             else
             {
@@ -50,9 +76,9 @@ namespace MediaManager
             else if (ConditionColumn.SelectedValue.ToString() == "Film Plot") { command.Append("film_Plot "); }
 
 
-            if (ConditionOperator.SelectedValue.ToString() == "Equal To") { command.Append("= "); }
-            else if (ConditionOperator.SelectedValue.ToString() == "Greater Than Or Equal To") { command.Append("> "); }
-            else if (ConditionOperator.SelectedValue.ToString() == "Less Than Or Equal To") { command.Append("< "); }
+            if (ConditionOperator.SelectedValue.ToString() == "Is Equal To") { command.Append("= "); }
+            else if (ConditionOperator.SelectedValue.ToString() == "Is Greater Than Or Equal To") { command.Append("> "); }
+            else if (ConditionOperator.SelectedValue.ToString() == "Is Less Than Or Equal To") { command.Append("< "); }
             else if (ConditionOperator.SelectedValue.ToString() == "Contains") { command.Append("LIKE "); }
 
 
@@ -71,9 +97,6 @@ namespace MediaManager
 
 
         }
-
-
-
 
 
         void cmdWORK_Click(object sender, RoutedEventArgs e)
