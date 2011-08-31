@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MediaManager.exe" size="701440">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MediaManager.exe" size="704000">
       <assemblyIdentity name="MediaManager" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>UOAspnpCNP8wOgn3mbDs2P5Sn9A=</dsig:DigestValue>
+        <dsig:DigestValue>2mosmMob53f57aevuClr64wOuDY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

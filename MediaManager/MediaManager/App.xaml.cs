@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Windows;
+using System.Net;
+using System.IO;
+
 
 namespace MediaManager
 {
@@ -25,10 +28,17 @@ namespace MediaManager
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message); 
             }
             
         }
 
+
+
+
+
 	}
+
+
+    
 }

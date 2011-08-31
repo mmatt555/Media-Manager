@@ -1,0 +1,9 @@
+C:\Users\Administrator\Media-Manager\MediaManager\MediaManagerUpdater\bin\Debug\MediaManagerUpdater.exe
+C:\Users\Administrator\Media-Manager\MediaManager\MediaManagerUpdater\bin\Debug\MediaManagerUpdater.pdb
+C:\Users\Administrator\Media-Manager\MediaManager\MediaManagerUpdater\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Media-Manager\MediaManager\MediaManagerUpdater\obj\x86\Debug\MediaManagerUpdater.Form1.resources
+C:\Users\Administrator\Media-Manager\MediaManager\MediaManagerUpdater\obj\x86\Debug\MediaManagerUpdater.Properties.Resources.resources
+C:\Users\Administrator\Media-Manager\MediaManager\MediaManagerUpdater\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Administrator\Media-Manager\MediaManager\MediaManagerUpdater\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Administrator\Media-Manager\MediaManager\MediaManagerUpdater\obj\x86\Debug\MediaManagerUpdater.exe
+C:\Users\Administrator\Media-Manager\MediaManager\MediaManagerUpdater\obj\x86\Debug\MediaManagerUpdater.pdb
