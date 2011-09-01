@@ -40,8 +40,8 @@
 			<Setter Property="BorderBrush" Value="{StaticResource ListBorder}"/>
 			<Setter Property="BorderThickness" Value="1"/>
 			<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-			<Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
-			<Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+			<Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
+			<Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden"/>
 			<Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
 			<Setter Property="ScrollViewer.PanningMode" Value="Both"/>
 			<Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
@@ -51,14 +51,16 @@
 				
 				<Setter.Value>
 					<ControlTemplate TargetType="{x:Type ListBox}">
-						<Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="1" SnapsToDevicePixels="true" CornerRadius="20">
-							<AniScrollViewerExample:AniScrollViewer x:Name="ScrollViewer" Margin="14,0" BorderBrush="{x:Null}" Visibility="Visible" Background="{x:Null}">
-								<ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-							</AniScrollViewerExample:AniScrollViewer>
+						<Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="1" SnapsToDevicePixels="true" CornerRadius="20">
+							<AniScrollViewerExample:AniScrollViewer x:Name="ScrollViewer" Margin="14,0" BorderBrush="{x:Null}" Visibility="Visible" Background="{x:Null}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="684" Padding="0,0,0,0">
+                                <StackPanel>
+								    <ItemsPresenter SnapsToDevicePixels="True" />
+                                </StackPanel>
+                            </AniScrollViewerExample:AniScrollViewer>
 						</Border>
 						<ControlTemplate.Triggers>
 							<Trigger Property="IsEnabled" Value="false">
-								<Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+								<Setter Property="Background" TargetName="Border" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
 							</Trigger>
 							<Trigger Property="IsGrouping" Value="true">
 								<Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
@@ -78,7 +80,7 @@
 				<Storyboard x:Key="HighlightFilm">
 					<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid">
 						<EasingColorKeyFrame KeyTime="0" />
-						<EasingColorKeyFrame KeyTime="0:0:0.3" Value="#7B2E527A"/>
+						<EasingColorKeyFrame KeyTime="0:0:0.3" Value="#69FF2300"/>
 					</ColorAnimationUsingKeyFrames>
 				</Storyboard>
 				
@@ -135,13 +137,65 @@
 				</Setter.Value>
 			</Setter>
 		</Style>
+		<Style x:Key="ScrollRightbt" TargetType="{x:Type Button}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Grid>
+							<Rectangle x:Name="cmdRight" RenderTransformOrigin="0.5,0.5">
+								<Rectangle.Fill>
+									<ImageBrush ImageSource="/MediaManager;component/Screen1Images/Generic/LeftRightButtons.png"/>
+								</Rectangle.Fill>
+								<Rectangle.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform/>
+										<SkewTransform/>
+										<RotateTransform Angle="180"/>
+										<TranslateTransform/>
+									</TransformGroup>
+								</Rectangle.RenderTransform>
+							</Rectangle>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsFocused" Value="True"/>
+							<Trigger Property="IsDefaulted" Value="True"/>
+							<Trigger Property="IsMouseOver" Value="True"/>
+							<Trigger Property="IsPressed" Value="True"/>
+							<Trigger Property="IsEnabled" Value="False"/>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="ScrollLeftbt" TargetType="{x:Type Button}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Grid>
+							<Rectangle x:Name="cmdLeft">
+								<Rectangle.Fill>
+									<ImageBrush ImageSource="/MediaManager;component/Screen1Images/Generic/LeftRightButtons.png"/>
+								</Rectangle.Fill>
+							</Rectangle>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsFocused" Value="True"/>
+							<Trigger Property="IsDefaulted" Value="True"/>
+							<Trigger Property="IsMouseOver" Value="True"/>
+							<Trigger Property="IsPressed" Value="True"/>
+							<Trigger Property="IsEnabled" Value="False"/>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
 
 		
 	</UserControl.Resources>
 
 	<Grid x:Name="LayoutRoot">
 		<Button Content="Get Results!" Height="32" Margin="0,146,20,0" VerticalAlignment="Top" x:Name="cmdWORK" HorizontalAlignment="Right" Width="154" />
-		<ListBox x:Name="lbFilms" Margin="49,234,53,8" Style="{DynamicResource lbFilmStyle}" Background="{x:Null}" BorderBrush="#FF9BB5E4" BorderThickness="5" ItemsPanel="{DynamicResource lbFilmItemLayout}" ItemTemplate="{DynamicResource lbFilmDataTemplace}" Height="270"  />
+		<ListBox x:Name="lbFilms" Margin="51,234,51,8" Style="{DynamicResource lbFilmStyle}" Background="{x:Null}" BorderBrush="#FF9BB5E4" BorderThickness="5" ItemsPanel="{DynamicResource lbFilmItemLayout}" ItemTemplate="{DynamicResource lbFilmDataTemplace}" Height="270"  />
 		<Label Content="Your Movies - Double click for more options" Height="38" Margin="8,192,8,0" VerticalAlignment="Top" Foreground="White" FontFamily="Sony Sketch EF" FontSize="26.667" HorizontalAlignment="Center"/>
 		<TextBox x:Name="txboxCommand" Height="86" Margin="8,8,0,0" VerticalAlignment="Top" TextOptions.TextFormattingMode="Display" AcceptsReturn="True" TextWrapping="Wrap" Text="SELECT * FROM [tbl_Maintable]" HorizontalAlignment="Left" Width="288" Background="#FF787878" Opacity="0.745"/>
 		<Button x:Name="ReturnButton" Content="Button" Height="61" Style="{DynamicResource ReturnStyle1}" Margin="0,8,8,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="73" MouseEnter="ReturnButton_MouseEnter" MouseLeave="ReturnButton_MouseLeave" Click="ReturnButton_Click"/>
@@ -164,7 +218,7 @@
 		<Label Content="This Value:" HorizontalAlignment="Right" Height="25" Margin="0,131,165,0" VerticalAlignment="Top" Width="194" Foreground="White"/>
 		<Button x:Name="cmdAddCondition" Content="Add Condition!" HorizontalAlignment="Right" Height="29" Margin="0,112,20,0" VerticalAlignment="Top" Width="154"/>
 		<Button x:Name="cmdReset" Content="Reset!" HorizontalAlignment="Right" Height="30" Margin="0,78,20,0" VerticalAlignment="Top" Width="154" Click="cmdReset_Click"/>
-		<Button x:Name="cmdRight" Content="Button" HorizontalAlignment="Right" Height="34" Margin="0,0,8,136" VerticalAlignment="Bottom" Width="41"/>
-		<Button x:Name="cmdLeft" Content="Button" HorizontalAlignment="Left" Height="34" Margin="8,0,0,136" VerticalAlignment="Bottom" Width="37"/>
+		<Button x:Name="cmdLeft" Content="Button" HorizontalAlignment="Left" Height="45" Margin="62,0,0,114.75" Style="{DynamicResource ScrollLeftbt}" VerticalAlignment="Bottom" Width="42" Click="cmdRightLeft_Click"/>
+		<Button x:Name="cmdRight" Content="Button" HorizontalAlignment="Right" Height="45" Margin="0,0,62,114.75" Style="{DynamicResource ScrollRightbt}" VerticalAlignment="Bottom" Width="42" Click="cmdRightLeft_Click"/>
 	</Grid>
 </UserControl>

@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Media.Animation;
+using System.Timers;
 
 namespace MediaManager
 {
@@ -21,41 +22,31 @@ namespace MediaManager
 	{
         public static AniScrollViewerExample.AniScrollViewer Scroller;
 
+
 		public ViewFilmsScreen()
 		{
-			this.InitializeComponent();
-            cmdWORK.Click += new RoutedEventHandler(cmdWORK_Click);
-            //lbFilms.SetValue(ScrollViewer.HorizontalScrollBarVisibilityProperty, ScrollBarVisibility.Hidden);
-			lbFilms.MouseDoubleClick +=new System.Windows.Input.MouseButtonEventHandler(lbFilms_MouseDoubleClick);
-            cmdAddCondition.Click += new RoutedEventHandler(cmdAddCondition_Click);
-            Scroller = (AniScrollViewerExample.AniScrollViewer)FindResource("ScrollViewer");
-            cmdLeft.Click += new RoutedEventHandler(cmdLeft_Click);
-            cmdRight.Click += new RoutedEventHandler(cmdRight_Click);
-			
-		}
-
-        void cmdRight_Click(object sender, RoutedEventArgs e)
-        {
             try
             {
-                if (Scroller == null) MessageBox.Show("testin'");
+                this.InitializeComponent();
+                cmdWORK.Click += new RoutedEventHandler(cmdWORK_Click);
+                //lbFilms.SetValue(ScrollViewer.HorizontalScrollBarVisibilityProperty, ScrollBarVisibility.Hidden);
+                lbFilms.MouseDoubleClick += new System.Windows.Input.MouseButtonEventHandler(lbFilms_MouseDoubleClick);
+                cmdAddCondition.Click += new RoutedEventHandler(cmdAddCondition_Click);
+
                 
-                double xoffset = Scroller.HorizontalOffset;
-                xoffset += 20;
-                double yoffset = Scroller.VerticalOffset;
-                Scroller.ScrollTo(xoffset, yoffset,Scroller);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                MessageBox.Show(ex.InnerException.Message);
-            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); };
+		}
+
+
+
+
+
+        void Scroller_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+            txboxCommand.Text = Scroller.HorizontalOffset.ToString();
         }
 
-        void cmdLeft_Click(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
 
         void cmdAddCondition_Click(object sender, RoutedEventArgs e)
         {
@@ -145,6 +136,58 @@ namespace MediaManager
         private void cmdReset_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             txboxCommand.Text = "SELECT * FROM [tbl_Maintable]";
+        }
+
+        private void cmdRightLeft_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (Scroller == null)
+            {
+                Scroller = (AniScrollViewerExample.AniScrollViewer)lbFilms.Template.FindName("ScrollViewer", lbFilms);
+                Scroller.ScrollChanged += new ScrollChangedEventHandler(Scroller_ScrollChanged);
+
+            }
+
+            double xoffset = Scroller.HorizontalOffset;
+            if (sender.Equals(cmdRight))
+            {
+                
+                xoffset += 680;
+                double multiplier = xoffset / 170;
+                Math.Ceiling(multiplier);
+                xoffset = 170 * multiplier;
+                if (xoffset > 170 * lbFilms.Items.Count)
+                {
+                    xoffset = 170 * lbFilms.Items.Count;
+                }
+                double spacingaddition = xoffset / 680;
+                spacingaddition = Math.Floor(spacingaddition);
+                MessageBox.Show(spacingaddition.ToString());
+                if (spacingaddition >= 0)
+                {
+                    xoffset += spacingaddition*4;
+                }
+            }
+            else
+            {
+
+                xoffset -= 680;
+                double multiplier = xoffset / 170;
+                Math.Floor(multiplier);
+                xoffset = 170 * multiplier;
+                if (xoffset < 0)
+                {
+                    xoffset = 0;
+                }
+                double spacingaddition = xoffset / 680;
+                spacingaddition = Math.Floor(spacingaddition);
+                MessageBox.Show(spacingaddition.ToString());
+                if (spacingaddition >= 0)
+                {
+                    xoffset += spacingaddition*4;
+                }
+            }
+            double yoffset = Scroller.VerticalOffset;
+            Scroller.ScrollTo(xoffset, yoffset, Scroller);
         }
 	}
 }

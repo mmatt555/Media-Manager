@@ -43,6 +43,7 @@ namespace AniScrollViewerExample
         }
         public void ScrollTo(double x, double y,AniScrollViewer scv)
         {
+            
             Storyboard sb = new Storyboard();
             DoubleAnimation vertAnim = new DoubleAnimation();
             vertAnim.From = scv.VerticalOffset;
@@ -52,8 +53,8 @@ namespace AniScrollViewerExample
             DoubleAnimation horzAnim = new DoubleAnimation();
             horzAnim.From = this.HorizontalOffset;
             horzAnim.To = x;
-            horzAnim.DecelerationRatio = 1;
-            horzAnim.Duration = new Duration(TimeSpan.FromMilliseconds(1000));
+            horzAnim.DecelerationRatio = 1.0;
+            horzAnim.Duration = new Duration(TimeSpan.FromMilliseconds(800));
             sb = new Storyboard();
             sb.Children.Add(vertAnim);
             sb.Children.Add(horzAnim);

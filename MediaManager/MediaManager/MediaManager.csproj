@@ -184,6 +184,7 @@
     <Resource Include="Screen1Images\CloseBtn.png" />
     <Resource Include="Screen1Images\CloseBtnFocussed.png" />
     <Resource Include="Screen1Images\CloudBack.png" />
+    <Resource Include="Screen1Images\Generic\LeftRightButtons.png" />
     <Resource Include="Screen1Images\MainBack.png" />
     <Resource Include="Screen1Images\MainText.png" />
     <Resource Include="Screen1Images\Generic\ReturnImage.png" />

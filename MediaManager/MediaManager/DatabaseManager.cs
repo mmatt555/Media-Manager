@@ -243,8 +243,5 @@ namespace MediaManager
 			_cmdDelete.ExecuteNonQuery();
 			
 		}
-		
-		
-
     }
 }

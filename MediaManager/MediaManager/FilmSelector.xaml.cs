@@ -90,8 +90,6 @@ namespace MediaManager
 
         }
 
-
-
         public StringBuilder GetHtml(string URL)
         {
 
@@ -131,6 +129,7 @@ namespace MediaManager
             return TheWebPage;
 
         }
+
         public static BitmapImage GrabImage(string URL)
         {
             
@@ -155,14 +154,7 @@ namespace MediaManager
                 image.UriSource = new Uri(URL);
                 image.EndInit();
             }
-            
-
-            
-            
-
             return image;
-            
-            
         }
   
         private void BtSearch_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -279,7 +271,6 @@ namespace MediaManager
             }
         }
 
-        
         public string[] GetLinks(StringBuilder website)
         {
             
@@ -324,15 +315,12 @@ namespace MediaManager
                 Links[i] = PossibleLines[i].Value;
                 Links[i] = rgxRemoveHref.Match(Links[i]).Value.ToString();
             }
-            
-
             return Links;
         }
-        
-        
+
         #region PickMovieButtons
 
-        private void Btmov1_Click(object sender, System.Windows.RoutedEventArgs e)
+        void Btmov1_Click(object sender, System.Windows.RoutedEventArgs e)
         {
 			if (Films[0].Name != null)
 			{
@@ -346,7 +334,6 @@ namespace MediaManager
             App.Mwindow.AddMovScreen.WriteInfo(Films[1]);
 			}
         }
-
         void Btmov3_Click(object sender, RoutedEventArgs e)
         {
 			if (Films[2].Name != null)
